@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        canvas { 
+            border: 3px solid rgb(0 50 100); 
+        }
+        #ican {
+            color: rgb(0 50 100)
+        }
+    </style>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('ican');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                ctx.beginPath(); // 새경로 만듦
+
+                ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+                ctx.moveTo(110, 75); // moveTo는 그릴위치 이동
+                ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth
+                ctx.moveTo(65, 65);
+                ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+                ctx.moveTo(95, 65);
+                ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+
+                ctx.stroke(); // 윤곽선쓰다듬어 모양그림
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="ican" width="200" height="200">
+    </canvas>
+    <div>arc(), arcTo() 원을 그릴때 사용</div>
+    <div>arc(x, y, radius, startAngle, endAngle, anticlockwise)</div>
+    <div>x, y는 원의 중심 좌표, radius는 반지름</div>
+    <div>startAngle및 endAngle파라미터는 원의 곡선을 따라 시작점과 끝점의 각도</div>
+    <div>0도로 시작해서 Math.PI * 2 = 2π 리디안(360 ° )으로 완전한 원을 그린다.</div>
+    <div>anticlockwise 파라미터는 기본값은 false (시계 방향), true는 시작 각도와 끝 각도 사이에 시계 반대 방향으로 호를 그린다.</div>
+</body>
+</html>
