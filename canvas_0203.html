@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        canvas { 
+            border: 3px solid rgb(0 50 100); 
+        }
+        #ican {
+            color: rgb(0 50 100)
+        }
+    </style>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('ican');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+
+                ctx.font = "40px Notosans";
+                ctx.fillText('영미~~최고야', 10, 80);
+
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="ican" width="600" height="200">
+    </canvas>
+    <div>fillText('canvas에 보여줄 폰트내용', 폰트그려질 좌표 x, 폰트그려질 좌표 y)</div>
+</body>
+</html>
