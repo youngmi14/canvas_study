@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        canvas { 
+            border: 3px solid rgb(0 50 100); 
+        }
+        #ican {
+            color: rgb(0 50 100)
+        }
+    </style>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('ican');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                ctx.beginPath(); // 새경로 만듦
+                ctx.moveTo(30, 25);
+                ctx.lineTo(30, 170);
+                ctx.lineTo(150, 170);
+                ctx.lineTo(150, 25);
+                ctx.lineTo(120, 25);
+                ctx.lineTo(120, 50);
+                ctx.lineTo(60, 50);
+                ctx.lineTo(60, 25);
+                ctx.lineTo(30, 25);
+                ctx.stroke();
+
+                ctx.fillStyle = 'orange';
+
+                ctx.beginPath(); 
+
+                ctx.moveTo(70, 90);
+                ctx.arc(65, 90, 5, 0, Math.PI * 2, true);  // Left eye
+
+                ctx.moveTo(120, 90);
+                ctx.arc(115, 90, 5, 0, Math.PI * 2, true);  // Right eye
+
+                ctx.moveTo(106, 140); // nose
+                ctx.lineTo(106, 155);
+                ctx.lineTo(70, 155);
+                ctx.lineTo(70, 140);
+                ctx.lineTo(106, 140);
+
+                ctx.fill();
+
+
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="ican" width="200" height="200">
+    </canvas>
+    <div>fill()은 내부를 채운다. 반대로 stroke()는 선을 그린다.</div>
+</body>
+</html>
