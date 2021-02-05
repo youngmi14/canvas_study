@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        canvas { 
+            border: 3px solid rgb(0 50 100); 
+        }
+        #ican {
+            color: rgb(0 50 100)
+        }
+    </style>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('ican');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                ctx.font = '48px serif';
+                ctx.fillText('Hello world', 10, 50);
+
+                ctx.font = '48px serif';
+                ctx.textBaseline = 'hanging';
+                ctx.direction = 'ltr';
+                ctx.strokeText('Hello world', 10, 90);
+
+
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="ican" width="400" height="200">
+    </canvas>
+</body>
+</html>
