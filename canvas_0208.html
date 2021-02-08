@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        canvas { 
+            border: 3px solid rgb(0 50 100); 
+        }
+        #ican {
+            color: rgb(0 50 100)
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+            for (var i = 0; i < 6; i++) {
+                for (var j = 0; j < 6; j++) {
+                    ctx.fillStyle = 'rgb(' + Math.floor(255 - 20.5 * i) + ', ' +
+                    Math.floor(255 - 83.5 * j) + ', 0)';
+                ctx.fillRect(j * 25, i * 25, 25, 25);
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="ican" width="500" height="500">
+    </canvas>
+</body>
+</html>
