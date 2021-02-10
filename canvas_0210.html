@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 1px solid #000; 
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+            // ctx.clearRect(0, 0, ican.width, ican.height);
+		
+            for (var i = 0; i < 12; i ++) {
+                for (var j = 0; j < 12; j++) {
+                    drawRect(i, j);
+                }
+            }
+
+            function drawRect(x, y) {
+                let red = randomHue();
+                let green = randomHue();
+                let blue = randomHue();
+                
+                ctx.beginPath();
+                ctx.rect(x * 25, y * 25, 24, 24);
+                ctx.fillStyle = `rgb(${red},${green},${blue})`;
+                ctx.fill();
+            }
+
+            function randomHue() {
+                let num = Math.floor(Math.random() * 256) + 1;
+                return num;
+            };
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-02-10</div>
+    <h3>알록달록 타일</h3>
+
+    <canvas id="ican" width="299" height="299">
+    </canvas>
+</body>
+</html>
