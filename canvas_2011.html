@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 1px solid #000; 
+            margin: 0 auto;
+        }
+        .canvasWrap {
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+            // ctx.clearRect(0, 0, ican.width, ican.height);
+		
+            ctx.fillStyle = 'rgb(0, 50, 100)';
+            ctx.fillRect(25, 25, 100, 100);
+            ctx.clearRect(45, 45, 60, 60);
+            ctx.strokeRect(50, 50, 50, 50);
+            ctx.strokeRect(50, 50, 50, 50);
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-02-11</div>
+    <h3>구멍뚫린 네모</h3>
+
+    <div class="canvasWrap">
+        <canvas id="ican" width="200" height="200">
+        </canvas>
+    </div>
+    <div>fillStyle 이 fillRect 보다 먼저 와야 함</div>
+</body>
+</html>
