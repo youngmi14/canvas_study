@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 0px solid #000; 
+            background: blue;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+		
+            // 색먼저
+            ctx.fillStyle = 'rgb(255 76 134)';
+            // 도형만들기
+            ctx.beginPath();
+            ctx.moveTo(55, 50);
+            ctx.lineTo(80, 75);
+            ctx.lineTo(80, 25);
+            ctx.fill();
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-02-11</div>
+    <h3>세모</h3>
+
+    <canvas id="ican" width="120" height="120"> </canvas>
+
+    <div>fillStyle=color</div>
+    <div>도형을 내부를 채울때</div>
+    <div>strokeStyle=color</div>
+    <div>외곽선 색</div>
+
+    <div>순서에 주의하기! 색을 지정한 후 도형을 그린다.</div>
+</body>
+</html>

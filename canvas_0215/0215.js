@@ -1,6 +1,6 @@
 var canvas = $('canvas#heart'),
 ctx = canvas.get(0).getContext('2d'),
-t = 'transparent', r = '#f66', w = 'fff', b = '#000',
+t = 'transparent', r = '#f66', w = '#fff', b = '#000',
     
 imgData = [
   t, t, t, t, t, t, t, t, t, t, t, t, t, 
@@ -34,7 +34,7 @@ for (var i = 0; i < imgData.length; i++) {
 
 var canvas8 = $('canvas#little_heart'),
 ctx = canvas8.get(0).getContext('2d'),
-t = 'transparent', r = '#f66', w = 'fff', b = '#000',
+t = 'transparent', r = '#f66', w = '#fff', b = '#000',
     
 imgData = [
   t, t, t, t, t, t, t, t, t, t, t, t, t, 
