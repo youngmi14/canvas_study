@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 0px solid #000; 
+            /* background: black; */
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+		
+            let gradient = ctx.createLinearGradient(20,0,190,80); 
+
+            gradient.addColorStop(0, '#fbc2eb');
+            gradient.addColorStop(0.5, '#a6c1ee');
+            gradient.addColorStop(1, '#fdcbf1');
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(20, 20, 200, 100);
+
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-02-18</div>
+    <h3>3중 그라데이션</h3>
+
+    <canvas id="ican" width="250" height="250"> </canvas>
+
+</body>
+</html>
