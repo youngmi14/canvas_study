@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+    * {
+        color: #fbc2eb
+    }
+        body {
+            background-color: black;
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 0px solid #000; 
+            /* background: black; */
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+		
+            ctx.beginPath();
+            
+            ctx.moveTo(55, 250);
+            ctx.lineTo(280, 250);
+            ctx.lineTo(170, 30);
+            
+            let gradient = ctx.createLinearGradient(0,30,0,250); 
+            gradient.addColorStop(0, '#e0c3fc');
+            gradient.addColorStop(1, '#8ec5fc');
+            
+            
+            ctx.fillStyle = gradient;
+            
+            ctx.fill();
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-02-22</div>
+    <h3>그라데이션 세모</h3>
+
+    <canvas id="ican" width="350" height="350"> </canvas>
+    <div>(x0, y0, x1, y1) 방향으로 그라데이션된다.</div>
+    <br>
+    <div>위 캔버스그림의 그라데이션 방향은 ctx.createLinearGradient(0,30,0,250)</div>
+
+</body>
+</html>

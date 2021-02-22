@@ -3,8 +3,8 @@ ctx = canvas.get(0).getContext('2d'),
 t = 'transparent', r = '#fff', w = '#d3d3d3', b = '#000', m = '#ff7f41',
     
 imgData = [
-  t, t, t, b, b, b, b, b, t, t, t, t, t, 
-  t, t, b, r, r, r, r, r, b, t, t, t, t, 
+  t, t, t, t, b, b, b, t, t, t, t, t, t, 
+  t, t, t, b, r, r, r, b, t, t, t, t, t, 
   t, t, b, r, b, r, b, r, b, t, t, t, t,
   t, t, t, b, r, r, r, b, t, t, t, t, t,
   t, t, t, t, b, r, b, t, t, t, t, b, t,
