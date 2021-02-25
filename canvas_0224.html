@@ -8,6 +8,7 @@
     <style type="text/css">
     * {
         color: #c7c7c7;
+        box-sizing: border-box;
     }
         body {
             background-color: black;
@@ -17,28 +18,37 @@
         }
         canvas { 
             border: 2px solid #c7c7c7; 
+            margin: 10px;
+        }
+        .canvaswrap {
+            border: 2px solid #c7c7c7; 
+            max-width: 355px;
         }
     </style>
     <script>
         function draw() {
             var ctx = document.getElementById('ican').getContext('2d');
+		
             ctx.beginPath();
-            ctx.arc(70, 90, 60, 0, Math.PI*2, true);
+            ctx.arc(80, 100, 60, 0, Math.PI*2, true);
             ctx.fillStyle = '#c7c7c7';
             ctx.fill();
-            ctx.beginPath();
-            ctx.arc(150, 90, 60, 0, Math.PI*2, true);
+            ctx.arc(160, 100, 60, 0, Math.PI*2, true);
             ctx.fillStyle = '#2ea3ffd1';
+            ctx.fill();
+            ctx.arc(240, 100, 60, 0, Math.PI*2, true);
+            ctx.fillStyle = '#2ea3ff96';
             ctx.fill();
         }
     </script>
 </head>
 <body onload="draw();">
     <h1>canvas study</h1>
-    <div>2021-02-25</div>
-    <h3>원2겹침</h3>
-
-    <canvas id="ican" width="230" height="200"> </canvas>
+    <div>2021-02-24</div>
+    <h3>원3 겹치기</h3>
+    <div class="canvaswrap">
+        <canvas id="ican" width="325" height="200"> </canvas>
+    </div>
     
 </body>
 </html>
