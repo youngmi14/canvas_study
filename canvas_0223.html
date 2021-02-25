@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+    * {
+        color: #c7c7c7;
+    }
+        body {
+            background-color: black;
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 2px solid #c7c7c7; 
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+		
+            // ctx.beginPath();
+            // ctx.arc(70, 90, 60, 0, Math.PI*2, true);
+            // ctx.fillStyle = '#c7c7c7';
+            // ctx.fill();
+            // ctx.arc(150, 90, 60, 0, Math.PI*2, true);
+            // ctx.fillStyle = '#2ea3ffd1';
+            // ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(70, 90, 60, 0, Math.PI*2, true);
+            ctx.fillStyle = '#c7c7c7';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(150, 90, 60, 0, Math.PI*2, true);
+            ctx.fillStyle = '#2ea3ffd1';
+            ctx.fill();
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-02-25</div>
+    <h3>원3</h3>
+
+    <canvas id="ican" width="230" height="200"> </canvas>
+    
+</body>
+</html>
