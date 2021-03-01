@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+    * {
+        color: #c7c7c7;
+    }
+        body {
+            background-color: black;
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 2px solid #c7c7c7; 
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+		
+            ctx.beginPath();
+            ctx.arc(80, 90, 60, 0, Math.PI*2, true); // head
+            ctx.fillStyle = 'white';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(55, 95, 8, 0, Math.PI*2, true); // eye
+            ctx.arc(100, 95, 8, 0, Math.PI*2, true);
+            ctx.fillStyle = 'black';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(57, 90, 2, 0, Math.PI*2, true); // eye 22
+            ctx.arc(102, 90, 2, 0, Math.PI*2, true);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(77, 113, 8, 0, Math.PI*2, true); // nose
+            ctx.fillStyle = 'black';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(35, 45, 25, 0, Math.PI*2, true); // ear
+            ctx.arc(128, 45, 25, 0, Math.PI*2, true);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+
+            ctx.font = '48px serif';
+            ctx.fillText('Hi~', 180, 80);
+
+
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-03-01</div>
+    <h3>baby bear</h3>
+
+    <canvas id="ican" width="300" height="200"> </canvas>
+    
+</body>
+</html>
