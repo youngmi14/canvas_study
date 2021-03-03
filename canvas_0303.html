@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+    * {
+        color: black;
+    }
+        /* body {
+            background-color: black;
+        } */
+        h1 {
+            margin-bottom: 0px;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+		
+            ctx.beginPath();
+            ctx.arc(170, 70, 60, 0, Math.PI*2, true);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            
+            ctx.beginPath(); // 선긋기시작
+            ctx.moveTo(50, 100); // 시작좌표
+            ctx.lineTo(200, 100); // 끝나는좌표
+            ctx.lineWidth = 5; // 선굵기
+            ctx.fillStyle = 'black'; // 색
+
+            ctx.moveTo(180, 40);
+            ctx.lineTo(280, 40); // 끝나는좌표
+            ctx.stroke(); // 선끝 선보여주기 
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-03-03</div>
+    <h3>도형</h3>
+
+    <canvas id="ican" width="400" height="400"> </canvas>
+    
+</body>
+</html>
