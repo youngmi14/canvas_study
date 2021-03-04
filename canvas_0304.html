@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+    * {
+        color: #c7c7c7;
+    }
+        body {
+            background-color: black;
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        /* canvas { 
+            border: 2px solid #c7c7c7; 
+        } */
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+		
+            ctx.beginPath();
+            ctx.arc(170, 70, 60, 0, Math.PI*2, true);
+            ctx.fillStyle = 'green';
+            ctx.fill();
+            
+            ctx.beginPath(); // 선긋기시작
+            ctx.moveTo(50, 100); // 시작좌표
+            ctx.lineTo(200, 100); // 끝나는좌표
+            ctx.lineWidth = 5; // 선굵기
+            ctx.stroke(); // 선끝 선보여주기
+
+            ctx.beginPath(); // 선긋기시작
+            ctx.moveTo(180, 40);
+            ctx.lineTo(280, 40); // 끝나는좌표
+            ctx.strokeStyle = '#fff'; // 선에 색스타일을 주려면 strokeStyle을 써야 한다.
+            ctx.stroke(); // 선끝 선보여주기
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-03-04</div>
+    <h3>선</h3>
+
+    <canvas id="ican" width="300" height="170"> </canvas>
+    
+</body>
+</html>
