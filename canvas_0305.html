@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+    * {
+        color: black;
+    }
+        /* body {
+            background-color: black;
+        } */
+        h1 {
+            margin-bottom: 0px;
+        }
+        /* canvas { 
+            border: 2px solid #c7c7c7; 
+        } */
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+            var canvas = document.getElementById('ican');
+            rects = [
+                {x: 10, y: 10, w: 120, h: 120},
+                // {x: 50, y: 70, w: 150, h: 30}    // etc.
+            ]
+            var i = 0, r;
+            
+            while(r = rects[i++]) {
+                ctx.rect(r.x, r.y, r.w, r.h);
+                ctx.fillStyle = "blue"; 
+                ctx.fill();
+            }
+            
+            document.getElementById('ican').onmousemove = function(e) {
+                var rect = this.getBoundingClientRect(),
+                x = e.clientX - rect.left,
+                y = e.clientY - rect.top,
+                i = 0, r;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                while(r = rects[i++]) {
+                    // add a single rect to path:
+                    ctx.beginPath();
+                    ctx.rect(r.x, r.y, r.w, r.h);    
+                    
+                    // check if we hover it, fill red, if not fill it blue
+                    ctx.fillStyle = ctx.isPointInPath(x, y) ? "red" : "blue";
+                    ctx.fill();
+                }
+
+
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-03-05</div>
+    <h3>hover change color</h3>
+
+    <canvas id="ican" width="300" height="300"> </canvas>
+    
+</body>
+</html>

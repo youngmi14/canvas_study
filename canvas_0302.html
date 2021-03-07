@@ -19,6 +19,8 @@
             border: 2px solid #c7c7c7; 
         } */
     </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script>
         function draw() {
             var ctx = document.getElementById('ican').getContext('2d');
@@ -46,6 +48,6 @@
     <h3>원3</h3>
 
     <canvas id="ican" width="400" height="400"> </canvas>
-    
+    <div>canvas는 비트맵이므로 hover이벤트를 수동으로 구현해야 한다.</div>
 </body>
 </html>
