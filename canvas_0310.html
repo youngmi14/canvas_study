@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        * {
+            /* color: #09F; */
+        }
+        body {
+            /* background-color: rgb(5, 80, 55); */
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        /* canvas { 
+            border: 2px solid #c7c7c7; 
+        } */
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+
+            ctx.beginPath();
+            ctx.arc(100, 100, 100, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+            ctx.save();           
+
+            ctx.fillStyle = '#09F';
+            ctx.beginPath();  
+            ctx.arc(100, 100, 80, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+            
+            ctx.save();
+            ctx.fillStyle = '#FFF';
+            ctx.globalAlpha = 0.5;
+            ctx.beginPath();
+            ctx.arc(100, 100, 60, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.restore();
+            ctx.beginPath();
+            ctx.arc(100, 100, 40, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.restore();
+            ctx.beginPath();
+            ctx.arc(100, 100, 20, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-03-10</div>
+    <h3>save(), restore()</h3>
+
+    <canvas id="ican" width="200" height="200"></canvas>
+    
+</body>
+</html>
