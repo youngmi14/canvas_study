@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        * {
+            /* color: #09F; */
+        }
+        body {
+            /* background-color: rgb(5, 80, 55); */
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        /* canvas { 
+            border: 2px solid #c7c7c7; 
+        } */
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('ican').getContext('2d');
+            
+            ctx.fillStyle = 'rgb(51, 204, 255)';
+            ctx.fillRect(0, 0, 50, 50);
+            ctx.save();
+
+            ctx.fillStyle = 'orange';
+            ctx.translate(60, 0);
+            ctx.fillRect(0, 0, 50, 50);
+            ctx.save();
+
+            ctx.fillStyle = 'pink';
+            ctx.translate(60, 0);
+            ctx.fillRect(0, 0, 50, 50);
+            ctx.save();
+            ctx.restore();
+
+            ctx.fillStyle = 'gray';
+            ctx.translate(0, 60);
+            ctx.fillRect(0, 0, 50, 50);
+            ctx.save();
+            ctx.restore();
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-03-11</div>
+    <h3>translate(x, y)</h3>
+
+    <canvas id="ican" width="400" height="400"></canvas>
+    
+</body>
+</html>
