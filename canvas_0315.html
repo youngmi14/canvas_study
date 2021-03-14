@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        * {
+            /* color: #09F; */
+        }
+        body {
+            /* background-color: rgb(5, 80, 55); */
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        /* canvas { 
+            border: 2px solid #c7c7c7; 
+        } */
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            // 우측 사각형, '사각형 중심'에서 회전하기
+            // 파란 사각형 그리기
+            ctx.fillStyle = '#0095DD';
+            ctx.fillRect(150, 30, 100, 100);
+
+            // 회색 사각형 그리기
+            ctx.translate(200, 80); // 사각형 중심으로 이동하기
+                                    // x = x + 0.5 * width
+                                    // y = y + 0.5 * height
+            ctx.rotate((Math.PI / 180) * 40); // 회전
+            ctx.translate(-200, -80); // 예전 위치로 이동하기
+            ctx.fillStyle = '#4D4E53';
+            ctx.fillRect(150, 30, 100, 100);
+
+            // 사각형 추가
+            ctx.translate(200, 80); // 사각형 중심으로 이동하기
+                                    // x = x + 0.5 * width
+                                    // y = y + 0.5 * height
+            ctx.rotate((Math.PI / 180) * 20); // 회전
+            ctx.translate(-200, -80); // 예전 위치로 이동하기
+            ctx.fillStyle = 'orange';
+            ctx.fillRect(170, 50, 60, 60);
+
+            // 사각형 추가2
+            ctx.translate(200, 80); // 사각형 중심으로 이동하기
+                                    // x = x + 0.5 * width
+                                    // y = y + 0.5 * height
+            ctx.rotate((Math.PI / 180) * 40); // 회전
+            ctx.translate(-200, -80); // 예전 위치로 이동하기
+            ctx.fillStyle = 'green';
+            ctx.fillRect(180, 60, 40, 40);
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>canvas study</h1>
+    <div>2021-03-15</div>
+    <h3>rotate()</h3>
+
+    <canvas id="canvas" width="400" height="400"></canvas>
+    
+</body>
+</html>
