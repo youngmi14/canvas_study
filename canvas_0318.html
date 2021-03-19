@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        * {
+            /* color: #09F; */
+        }
+        body {
+            /* background-color: rgb(5, 80, 55); */
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 1px solid #c7c7c7; 
+            width: 400px;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            var sin = Math.sin(Math.PI / 4);
+            var cos = Math.cos(Math.PI / 4);
+            ctx.translate(0, 0);
+            var c = 0;
+            c = Math.floor(255 / 12);
+            ctx.fillStyle = 'rgb(0, 50, 100)';
+            ctx.fillRect(0, 0, 200, 20);
+            // ctx.transform(cos, sin);
+            
+        }
+    </script>
+</head>
+    <body onload="draw();">
+        <h1>canvas study</h1>
+        <div>2021-03-18</div>
+        <h3>변형 transform(a, b, c, d, e, f)</h3>
+
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <div><strong>a(m11)</strong></div>
+        <div>수평으로 확대/축소하기</div>
+
+        <div><strong>b(m12)</strong></div>
+        <div>수평으로 비스듬히 기울이기</div>
+
+        <div><strong>c(m21)</strong></div>
+        <div>수직으로 비스듬히 기울이기</div>
+
+        <div><strong>d(m22)</strong></div>
+        <div>수직으로 확대/축소하기</div>
+
+        <div><strong>e(dx)</strong></div>
+        <div>수평으로 이동하기</div>
+
+        <div><strong>f(dy)</strong></div>
+        <div>수직으로 이동하기</div>
+
+    </body>
+</html>

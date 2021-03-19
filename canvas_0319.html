@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas test</title>
+
+    <style type="text/css">
+        * {
+            /* color: #09F; */
+        }
+        body {
+            /* background-color: rgb(5, 80, 55); */
+        }
+        h1 {
+            margin-bottom: 0px;
+        }
+        canvas { 
+            border: 1px solid #c7c7c7; 
+            width: 400px;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            ctx.save();
+            ctx.scale(-1, 1); // 반대로뒤집기
+            ctx.font = '28px serif'; // 폰트 크기 스타일 지정
+            ctx.fillText('NICOLE 반대로하기', -380, 120); //글자캔버스에 그리기, 좌표
+            ctx.restore();
+
+            ctx.scale(1, 1); // 반대로뒤집기
+            ctx.font = '30px sanserif'; // 폰트 크기 스타일 지정
+            ctx.fillText('CHOCO', 10, 320); //글자캔버스에 그리기, 좌표
+
+        }
+    </script>
+</head>
+    <body onload="draw();">
+        <h1>canvas study</h1>
+        <div>2021-03-18</div>
+        <h3>canvas font</h3>
+
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <div><strong>font</strong></div>
+        <div>ctx.font에서 serif/sanserif 설정안하면 안됨</div>
+
+    </body>
+</html>
