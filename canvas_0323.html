@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>canvas test</title>
+
+        <style type="text/css">
+            * {
+                /* color: #09F; */
+            }
+            body {
+                /* background-color: rgb(5, 80, 55); */
+            }
+            h1 {
+                margin-bottom: 0px;
+            }
+            canvas { 
+                border: 1px solid #c7c7c7; 
+                /* width: 100px; */
+            }
+        </style>
+        <script>
+            function draw() {
+                var ctx = document.getElementById("canvas").getContext("2d");
+                // Clip a rectangular area
+                ctx.rect(0,0,200,120);
+                ctx.stroke();
+                ctx.clip();
+                // Draw blue rectangle after clip()
+                ctx.fillStyle='#232256';
+                ctx.fillRect(0,0,100,100);
+            }
+
+        </script>
+    </head>
+    <body onload="draw();">
+        <h1>canvas study</h1>
+        <div>2021-03-23</div>
+        <h3>clip()</h3>
+
+        <canvas id="canvas" width="310" height="150"></canvas>
+    </body>
+</html>
