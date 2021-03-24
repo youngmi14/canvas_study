@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>canvas test</title>
+
+        <style type="text/css">
+            * {
+                /* color: #09F; */
+            }
+            body {
+                /* background-color: rgb(5, 80, 55); */
+            }
+            h1 {
+                margin-bottom: 0px;
+            }
+            canvas { 
+                /* border: 1px solid #c7c7c7;  */
+                /* width: 100px; */
+            }
+        </style>
+        <script>
+            function draw() {
+                var ctx = document.getElementById("canvas").getContext("2d");
+                // Clip a rectangular area
+                ctx.save();
+                ctx.fillRect(0,0,150,150); // 검은사각형
+                
+                ctx.translate(75,75); // 원이동
+                // 동그란 모양의 잘라내기 경로를 생성한다
+                ctx.beginPath(); // 원그리기시작
+                ctx.arc(0,0,60,0,Math.PI*2,true); // 원생성
+                ctx.clip(); // 원모양으로 잘라내기
+                ctx.fillStyle = 'pink'; // 원모양으로 잘라낸거에 색깔입히기
+                ctx.fillRect(-35,-35,150,150); // 원모양으로 잘라낸 원래사각형
+                ctx.restore();
+            }
+
+        </script>
+    </head>
+    <body onload="draw();">
+        <h1>canvas study</h1>
+        <div>2021-03-24</div>
+        <h3>clip()</h3>
+
+        <canvas id="canvas" width="300" height="300"></canvas>
+    </body>
+</html>
