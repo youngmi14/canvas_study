@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>canvas test</title>
+
+        <style type="text/css">
+            * {
+                /* color: #09F; */
+            }
+            body {
+                /* background-color: rgb(5, 80, 55); */
+            }
+            h1 {
+                margin-bottom: 0px;
+            }
+            canvas { 
+                /* border: 1px solid #c7c7c7;  */
+                /* width: 100px; */
+            }
+        </style>
+        <script>
+            function draw() {
+                var ctx = document.getElementById("canvas").getContext("2d");
+                var img = document.createElement('IMG');
+                
+                img.onload = function () {
+                    ctx.save();
+
+                    ctx.beginPath();
+                    ctx.moveTo(20, 0);
+                    ctx.lineTo(240, 0);
+                    ctx.lineTo(220, 240);
+                    ctx.lineTo(0, 240);
+                    ctx.closePath();
+
+                    ctx.clip();
+
+                    ctx.drawImage(img, 0, 0);
+
+                    ctx.restore();
+                }
+                img.src = "https://upload.wikimedia.org/wikipedia/en/1/18/Rain_clouds.JPG";
+            }   
+        </script>
+    </head>
+    <body onload="draw()">
+        <h1>canvas study</h1>
+        <div>2021-03-25</div>
+        <h3>clip()</h3>
+
+        <canvas id="canvas" width="300" height="300"></canvas>
+    </body>
+</html>
