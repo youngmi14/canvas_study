@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>canvas test</title>
+
+        <style type="text/css">
+            * {
+                /* color: #09F; */
+            }
+            body {
+                /* background-color: rgb(5, 80, 55); */
+            }
+            h1 {
+                margin-bottom: 0px;
+            }
+            canvas { 
+                /* border: 1px solid #c7c7c7;  */
+                /* width: 100px; */
+            }
+        </style>
+        <script>
+            function draw() {
+                var ctx = document.getElementById("canvas").getContext("2d");
+
+                // 사각형과 그외 도형 만들기
+                ctx.save();
+                ctx.fillStyle = "green";
+                ctx.fillRect(0, 0, 100, 100); // 녹색사각형
+                ctx.restore();
+                ctx.save();
+                ctx.fillRect(120, 0, 40, 80); // 검은사각형
+
+
+                ctx.translate(100,150); 
+                ctx.beginPath();
+                ctx.fillStyle = "pink";
+                ctx.moveTo(20, 0);
+                ctx.lineTo(150, 0);
+                ctx.lineTo(130, 150);
+                ctx.lineTo(0, 150);
+                ctx.fill();
+                ctx.closePath();
+
+            }
+
+        </script>
+    </head>
+    <body onload="draw();">
+        <h1>canvas study</h1>
+        <div>2021-03-30</div>
+        <h3>캔버스에 도형그리기</h3>
+
+
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <div>
+            사각형을 그릴 때는 (x, y, w, h) 위치와 너비 높이를 정해서 그리기 때문에 도형 중 제일 쉽고 간편하다. 
+            <br>
+            원도 사각형처럼 원점위치와 반지름 길이만 설정해주면 원을 그린다.
+            <br>
+            하지만 삼각형, 오각형 등 그 외 도형들은 시작점과 끝점을 각 길이마다 이어서 만들어야 한다.
+        </div>
+        <br>
+    </body>
+</html>
