@@ -8,7 +8,7 @@ let rectDir = 'right';
 
 function draw() {
   count++;
-  if (recX == 0) { // 다시 코드짜야함 조건문 만들어서 끝까지오면 다시 반대로 가게하는 조건으로새로
+  if (recX == 0) {
     rectDir = 'right';
   } else if (recX == 400 - rectW) {
     rectDir = 'left';
