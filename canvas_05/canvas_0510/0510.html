@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>canvas test</title>
+
+        <style type="text/css">
+            * {
+                color: rgb(255, 255, 255);
+            }
+            body {
+                background-color: rgb(0, 0, 0);
+                overflow: hidden;
+            }
+            h1 {
+                margin-bottom: 0px;
+            }
+            #canvas {
+                /* border: 1px solid black; */
+                animation : spin 300s linear infinite;
+                transform-origin: 50% 50%;
+                /* overflow: hidden; 소용없음 */
+            }
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                    transform-origin: 50% 50%;
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+        <script>
+        </script>
+    </head>
+    <body>
+        <h1>canvas study</h1>
+        <div>2021-05-10</div>
+        <h3>돌아가는 우주</h3>
+
+        <canvas id="canvas" class="canvas" width="300" height="300"></canvas>
+        <script type="text/javascript" src="./0510.js"></script>
+    </body>
+</html>
