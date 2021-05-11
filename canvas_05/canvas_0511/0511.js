@@ -33,10 +33,6 @@ function drawCon() {
     ctx.fillStyle = 'rgb(255, 255, 255)';//"#eed9b9";
     ctx.fill();
     ctx.restore();
-
-    ctx.font = '15px san-serif';
-    ctx.fillStyle = 'white';
-    ctx.fillText('아이스크림을 클릭해보세요!', 100, 380);
 }
 function init() {
     drawIceCream();
