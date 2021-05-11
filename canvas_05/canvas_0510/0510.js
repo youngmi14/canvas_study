@@ -3,8 +3,8 @@ const ctx = canvas.getContext('2d');
 let stars = 500;
 let colorRange = [0, 60, 240];
 
-ctx.canvas.width = window.innerWidth;
-ctx.canvas.height = window.innerHeight;
+ctx.canvas.width = window.innerWidth +300;
+ctx.canvas.height = window.innerHeight +300;
 
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
