@@ -11,7 +11,8 @@ const circle = new Path2D();
 let currentColor = colorsArr[getRandom(0, 3)];
 
 let newColorsArr = colorsArr.slice();
-newColorsArr.filter((ele) => ele !== currentColor);
+newColorsArr.splice(newColorsArr.indexOf(currentColor),1);
+// newColorsArr.filter((ele) => ele !== currentColor);
 
 
 function getRandom(min, max) { // 랜덤함수
@@ -27,18 +28,12 @@ function drawIceCream() {
 }
 function drawCon() {
     ctx.save();
-    circle.arc(200, 160, 100, 0, 360);
-    ctx.fillStyle = colorsArr[getRandom(0, 3)];
-    ctx.fill(circle);
-    ctx.restore();
-
-    ctx.save();
     ctx.beginPath();
     ctx.moveTo(140, 240);
     ctx.lineTo(260, 240);
     ctx.lineTo(200, 335);
     ctx.closePath();
-    ctx.fillStyle = 'rgb(255, 255, 255)';//"#eed9b9";
+    ctx.fillStyle = 'rgb(255, 255, 255)';
     ctx.fill();
 
     ctx.font = '15px Cambria san-serif';
@@ -52,11 +47,12 @@ drawCon();
 canvas.addEventListener('mousedown', function(e) {
     if (ctx.isPointInPath(circle, e.offsetX, e.offsetY)) {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // 초기화
-        newColorsArr = colorsArr.slice();
-        newColorsArr.filter((ele) => ele !== currentColor);
         currentColor = newColorsArr[getRandom(0, 2)];
         ctx.fillStyle = currentColor;
         ctx.fill(circle);
+        newColorsArr = colorsArr.slice();
+        newColorsArr.splice(newColorsArr.indexOf(currentColor),1);
+        // newColorsArr.filter((ele) => ele !== currentColor);
         drawCon();
     }
 })
