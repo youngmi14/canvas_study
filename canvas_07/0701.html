@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Transform</h1>
+    <canvas class="canvas" width="500" height="500"></canvas>
+
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const ctx = canvas.getContext('2d');
+
+      let rectScale = 1;
+
+      function draw() {
+        ctx.strokeRect(100, 100, 100, 100);
+
+        ctx.scale(1.05, 1.05);
+
+        rectScale += 0.05;
+
+        if (rectScale >= 3) {
+          console.log('return');
+          return;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    </script>
+  </body>
+</html>
