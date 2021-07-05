@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Transform</h1>
+    <canvas class="canvas" width="500" height="500"></canvas>
+
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const ctx = canvas.getContext('2d');
+      let scaleVal = 1;
+      let rotationVal = 0;
+
+      let rectScale = 1;
+
+      function toRadian(d) {
+        return d * Math.PI/180;
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.translate(350, 350);
+        ctx.scale(scaleVal, scaleVal);
+        ctx.rotate(toRadian(rotationVal));
+
+        scaleVal += 0.05;
+        rotationVal += 1;
+
+
+
+        // 기준점이 왼쪽상단
+        // ctx.strokeRect(0, 0, 100, 100);
+        // center
+        ctx.strokeRect(-50, -50, 100, 100);
+        ctx.restore();
+
+        ctx.fillStyle = 'orange'
+        ctx.fillRect(10, 10, 30, 30);
+
+
+        // 애니메이션
+        rectScale += 0.05;
+
+        if (rectScale >= 10) {
+          console.log('return');
+          return;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    </script>
+  </body>
+</html>
