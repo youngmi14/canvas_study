@@ -8,20 +8,33 @@
             .canvas {
                 background: rgb(252, 252, 252);
             }
+            .canvasWrap {
+                position: relative;
+            }
             .drawimg_code {
                 background-color: rgb(162, 181, 216);
                 font-weight: 800;
                 padding: 20px;
                 width: 500px;
             }
+            .randomBtn {
+                position: absolute;
+                padding: 10px 20px;
+                background-color: #a2b5d8;
+                font-weight: 800;
+            }
     </style>
   </head>
 
   <body>
-    <h1>스프라이트 이미지</h1>
-    <canvas class="canvas" width="300" height="250">
-        Sorry, Your browser doesn't support HTML5 Canvas.
-    </canvas>
+    <h1>스프라이트 이미지 +랜덤</h1>
+    <div class="canvasWrap">
+        <canvas class="canvas" width="300" height="250">
+            Sorry, Your browser doesn't support HTML5 Canvas.
+        </canvas>
+    
+        <button class="randomBtn" onclick="randomCh()">랜덤 캐릭터</button>
+    </div>
 
     <div class="drawimg_code">
         ctx.drawImage(img, startX, startY, endX, endY, x, y, sizeX, sizeY)
@@ -48,6 +61,21 @@
     </div>
 
     <script>
+        // 캐릭터색깔 변함
+        // spriteX 정하는 함수
+        var spriteX = 0; // 최초
+        function randomCh() {
+            spriteX = 110 * rand(0, 6);
+            console.log('버튼 클릭');
+        }
+
+        // 랜덤함수
+        function rand(min, max) {
+           return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+
+
         window.addEventListener("load", init, false);
 
         const canvas = document.querySelector('.canvas');
@@ -71,13 +99,13 @@
 
             // 시간마다 불러오기
             function startUp() {
-                setInterval(drawDynamicImage, 200);
+                setInterval(drawDynamicImage, 150);
             }
 
             function drawDynamicImage() {
-                var spriteY = Math.floor(spriteFrames[frameIdx] % 3) * 110;
+                var spriteY = Math.floor(spriteFrames[frameIdx] % 5) * 110;
 
-                ctx.drawImage(amongImg, 0, spriteY, 110, 90, 0, 0, 275, 225); //3
+                ctx.drawImage(amongImg, spriteX, spriteY, 100, 90, 0, 0, 250, 225); //3
 
                 frameIdx++;
                 if(frameIdx == spriteFrames.length)

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Canvas sprite</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .canvas {
+                background: rgb(252, 252, 252);
+            }
+            .drawimg_code {
+                background-color: rgb(162, 181, 216);
+                font-weight: 800;
+                padding: 20px;
+                width: 500px;
+            }
+    </style>
+  </head>
+
+  <body>
+    <h1>스프라이트 이미지</h1>
+    <canvas class="canvas" width="300" height="250">
+        Sorry, Your browser doesn't support HTML5 Canvas.
+    </canvas>
+
+    <div class="drawimg_code">
+        ctx.drawImage(img, startX, startY, endX, endY, x, y, sizeX, sizeY)
+    </div>
+    <br>
+    <div>
+        - img : 사용할 이미지
+        <br>
+    - startX : 잘라낼 이미지의 시작점 x
+    <br>
+    - startY : 잘라낼 이미지의 시작점 y
+    <br>
+    - endX: 잘라낼 이미지의 마지막 위치 x
+    <br>
+    - endY : 잘라낼 이미지의 마지막 위치 y
+    <br>
+    - x : 이미지의 x 좌표값
+    <br>
+    - y : 이미지의 y 좌표값
+    <br>
+    - sizeX : 잘라낸 이미지의 x 값 크기
+    <br>
+    - sizeY : 잘라낸 이미지의 y 값 크기
+    </div>
+
+    <script>
+        window.addEventListener("load", init, false);
+
+        const canvas = document.querySelector('.canvas');
+        const ctx = canvas.getContext('2d');
+
+        function init() {
+            drawImg_among();
+        }
+
+        function drawImg_among() {
+            var frameIdx = 0;
+            var spriteFrames = [0, 1, 2, 3, 4];
+            // var spriteX = 110 * 0 // 색깔별 TODO - 다음걸로 버튼누르면 색깔바꾸게 하기
+
+            var amongImg = new Image();
+            amongImg.src = "./amongus.jpeg";
+            amongImg.addEventListener('load', eventSpriteLoaded, false);
+
+            function eventSpriteLoaded() {
+                startUp();
+            }
+
+            // 시간마다 불러오기
+            function startUp() {
+                setInterval(drawDynamicImage, 150);
+            }
+
+            function drawDynamicImage() {
+                var spriteY = Math.floor(spriteFrames[frameIdx] % 5) * 110;
+
+                ctx.drawImage(amongImg, 0, spriteY, 100, 90, 0, 0, 250, 225); //3
+
+                frameIdx++;
+                if(frameIdx == spriteFrames.length)
+                    frameIdx = 0;
+            }
+            
+
+        }
+    </script>
+  </body>
+</html>
